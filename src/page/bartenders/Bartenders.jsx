@@ -83,7 +83,7 @@ const Bartenders = () => {
       key: "status",
       render: (_, record) => (
         <span
-          className={`px-3 py-1 rounded-full text-sm ${
+          className={`px-3 py-1 italic rounded-full text-sm ${
             record.blockId
               ? "bg-red-500/20 text-red-500"
               : "bg-green-500/20 text-green-500"
@@ -101,13 +101,10 @@ const Bartenders = () => {
       render: (_, record) => (
         <div className="flex gap-2 justify-end items-center">
           <Link to={`/dashboard/BartenderManagement/details/${record.key}`}>
-          <button
-            className="w-[30px] h-[30px] bg-[#822CE71A] flex justify-center items-center text-lg rounded-md"
-            
-          >
-            <UserDtailsIco></UserDtailsIco>
-          </button>
-</Link>
+            <button className="w-[30px] h-[30px] bg-[#822CE71A] flex justify-center items-center text-lg rounded-md">
+              <UserDtailsIco></UserDtailsIco>
+            </button>
+          </Link>
           <button
             onClick={() => handleBlockUnblock(record?.block)}
             className={`w-[30px] h-[30px] flex justify-center items-center text-lg rounded-md ${
@@ -138,14 +135,11 @@ const Bartenders = () => {
       <div className="flex mb-3 justify-between ">
         <Navigate title={"Bartenders"} />
         <div className="flex  items-center">
-          
-
           <div className=" px-3 border-[#2A2448] justify-between items-center">
             <select className="bg-[#1a1238] text-gray-300 px-4 py-2 rounded-lg border border-[#2A2448] outline-none">
               <option>All Users</option>
               <option>Active Users</option>
               <option>Blocked Users</option>
-            
             </select>
           </div>
           <Input placeholder="Search By Name..." className="custom-input" />

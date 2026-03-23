@@ -276,7 +276,7 @@ const Header = () => {
                   alt="profile"
                 />
               </div>
-              <div className=" text-white">
+              <div className="italic text-white">
                 <h3>Your Name</h3>
                 <h4 className="bg-[#22C55E33] px-2 text-[#22C55E] rounded-full ">Admin</h4>
               </div>

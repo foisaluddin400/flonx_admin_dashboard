@@ -62,7 +62,7 @@ const HelpSupport = () => {
       key: "status",
       render: (_, record) => (
         <span
-          className={`px-3 py-1 rounded-full text-xs ${
+          className={`px-3 py-1 italic rounded-full text-xs ${
             record.status === "Approved"
               ? "bg-green-500/20 text-green-400"
               : "bg-yellow-500/20 text-yellow-400"

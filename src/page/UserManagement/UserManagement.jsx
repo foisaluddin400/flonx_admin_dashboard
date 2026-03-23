@@ -83,7 +83,7 @@ const UserManagement = () => {
       key: "status",
       render: (_, record) => (
         <span
-          className={`px-3 py-1 rounded-full text-sm ${
+          className={`px-3 py-1 italic rounded-full text-sm ${
             record.blockId
               ? "bg-red-500/20 text-red-500"
               : "bg-green-500/20 text-green-500"

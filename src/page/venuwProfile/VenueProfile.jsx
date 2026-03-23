@@ -25,29 +25,29 @@ const VenueProfile = () => {
       </div>
       {/* Venue Details */}
       <div className="mt-6 border text-white border-[#2A2448] rounded-xl  space-y-3">
-        <div className="border-b border-[#2A2448] p-3">
+        <div className="border-b italic border-[#2A2448] p-3">
           <h1>Venue Details </h1>
         </div>
 
         <div className="grid p-3 grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-gray-400">Venue Name</p>
+            <p className="text-gray-400 italic">Venue Name</p>
             <p>{venue.name}</p>
           </div>
           <div>
-            <p className="text-gray-400">Owner Name</p>
+            <p className="text-gray-400 italic">Owner Name</p>
             <p>{venue.owner}</p>
           </div>
           <div>
-            <p className="text-gray-400">Email</p>
+            <p className="text-gray-400 italic">Email</p>
             <p>{venue.email}</p>
           </div>
           <div>
-            <p className="text-gray-400">Contact Number</p>
+            <p className="text-gray-400 italic">Contact Number</p>
             <p>{venue.contact}</p>
           </div>
           <div className="col-span-2">
-            <p className="text-gray-400">Location</p>
+            <p className="text-gray-400 italic">Location</p>
             <p>{venue.location}</p>
           </div>
         </div>

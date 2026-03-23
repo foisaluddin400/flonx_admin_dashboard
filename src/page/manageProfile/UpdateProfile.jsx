@@ -51,8 +51,8 @@ const UpdateProfile = () => {
 
       <div className="mt-6 border text-white border-[#2A2448] rounded-xl space-y-3">
         <div className="border-b border-[#2A2448] p-3">
-          <h1 className="text-xl font-semibold pb-1">Update Profile</h1>
-          <p className="text-[#C9C6D6]">
+          <h1 className="text-[18px] italic font-semibold pb-1">Update Profile</h1>
+          <p className="text-[#C9C6D6] italic">
         Review and update your details as needed.
           </p>
         </div>

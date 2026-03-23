@@ -73,7 +73,7 @@ const RecentShifts = () => {
       key: "status",
       render: (_, record) => (
         <span
-          className={`px-3 py-1 rounded-full text-sm ${
+          className={`px-3 py-1 rounded-full italic text-sm ${
             record.status === "To Do"
               ? "bg-green-500/20 text-green-400"
               : "bg-yellow-500/20 text-yellow-400"
@@ -101,7 +101,7 @@ const RecentShifts = () => {
   return (
     <div>
       <div className="flex pt-4 text-white justify-between items-center mb-4">
-        <h1 className="text-xl font-semibold">Recent Help & Support</h1>
+        <h1 className="text-xl font-semibold italic">Recent Help & Support</h1>
         <Link to={'/dashboard/HelpSupport'}>
         <button className="text-[#3D8BFF] font-medium">View All</button></Link>
       </div>

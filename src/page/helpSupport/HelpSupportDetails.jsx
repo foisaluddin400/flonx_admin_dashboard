@@ -22,17 +22,17 @@ const HelpSupportDetails = () => {
         </div>
       {/* Venue Details */}
       <div className=" border text-white border-[#2A2448] rounded-xl  space-y-3">
-      <div className="border-b border-[#2A2448] p-3">
+      <div className="border-b italic border-[#2A2448] p-3">
         <h1>Bartender Details </h1>
       </div>
 
         <div className="grid p-3 grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-gray-400">Name</p>
+            <p className="text-gray-400 italic">Name</p>
             <p>{venue.name}</p>
           </div>
           <div>
-            <p className="text-gray-400">Email</p>
+            <p className="text-gray-400 italic">Email</p>
             <p>{venue.email}</p>
           </div>
           <div>
@@ -40,11 +40,11 @@ const HelpSupportDetails = () => {
             <button className="bg-[#22C55E33] px-2 mt-1 text-[#22C55E] rounded-full ">In Stock</button>
           </div>
           <div>
-            <p className="text-gray-400">Slogan</p>
+            <p className="text-gray-400 italic">Slogan</p>
             <p>{venue.contact}</p>
           </div>
           <div className="col-span-2">
-            <p className="text-gray-400">Message</p>
+            <p className="text-gray-400 italic">Message</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat deleniti explicabo odio quasi voluptates repellendus vel minima? Sed, nobis?</p>
           </div>
         </div>

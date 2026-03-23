@@ -13,7 +13,7 @@ const Activity = () => {
       
       {/* Header */}
       <div className="flex border-b px-3 py-2 border-[#2A2448] justify-between items-center">
-        <h2 className="text-lg font-semibold text-gray-300">
+        <h2 className="text-lg font-semibold italic text-gray-300">
           Showing activities for Today
         </h2>
 
@@ -36,7 +36,7 @@ const Activity = () => {
             </div>
 
             <div>
-              <p className="text-gray-400 text-sm">Users Joined</p>
+              <p className="text-gray-400 text-sm italic">Users Joined</p>
               <p className="text-purple-400 text-lg font-semibold">113</p>
             </div>
           </div>
@@ -48,7 +48,7 @@ const Activity = () => {
             </div>
 
             <div>
-              <p className="text-gray-400 text-sm">Bartenders Joined</p>
+              <p className="text-gray-400 text-sm italic">Bartenders Joined</p>
               <p className="text-purple-400 text-lg font-semibold">$ 1176</p>
             </div>
           </div>
@@ -60,7 +60,7 @@ const Activity = () => {
             </div>
 
             <div>
-              <p className="text-gray-400 text-sm">Venue Owners Joined</p>
+              <p className="text-gray-400 text-sm italic">Venue Owners Joined</p>
               <p className="text-purple-400 text-lg font-semibold">05</p>
             </div>
           </div>

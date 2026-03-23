@@ -25,32 +25,28 @@ const UserDetails = () => {
       </div>
       {/* Venue Details */}
       <div className="mt-6 border text-white border-[#2A2448] rounded-xl  space-y-3">
-        <div className="border-b border-[#2A2448] p-3">
+        <div className="border-b italic border-[#2A2448] p-3">
           <h1>User Details </h1>
         </div>
 
         <div className="grid p-3 grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-gray-400">Name</p>
+            <p className="text-gray-400 italic">Name</p>
             <p>{venue.name}</p>
           </div>
           <div>
-            <p className="text-gray-400">Email</p>
+            <p className="text-gray-400 italic">Email</p>
             <p>{venue.email}</p>
           </div>
+          <div className="">
+            <p className="text-gray-400 italic" >Joined On</p>
+            <p>Jul 14, 2025</p>
+          </div>
           <div>
-            <p className="text-gray-400">Availability</p>
-            <button className="bg-[#22C55E33] px-2 mt-1 text-[#22C55E] rounded-full ">
-              In Stock
+            <p className="text-gray-400 italic">Status</p>
+            <button className="bg-[#22C55E33] px-2 mt-1 text-[#22C55E] rounded-full italic">
+              Active
             </button>
-          </div>
-          <div>
-            <p className="text-gray-400">Slogan</p>
-            <p>{venue.contact}</p>
-          </div>
-          <div className="col-span-2">
-            <p className="text-gray-400">Price</p>
-            <p>$34.99</p>
           </div>
         </div>
       </div>
