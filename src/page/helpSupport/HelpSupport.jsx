@@ -11,7 +11,7 @@ const HelpSupport = () => {
   const pageSize = 10;
 
   // Dummy Shift Data
-  const dummyShifts = Array.from({ length: 25 }, (_, index) => ({
+  const dummyShifts = Array.from({ length: 5 }, (_, index) => ({
     key: index + 1,
     no: index + 1,
     name: `Bartender ${index + 1}`,
@@ -115,16 +115,7 @@ const HelpSupport = () => {
         className="custom-table"
       />
 
-      {/* Pagination */}
-      <div className="mt-4 flex justify-center">
-        <Pagination
-          current={currentPage}
-          pageSize={pageSize}
-          total={dummyShifts.length}
-          onChange={handlePageChange}
-          showSizeChanger={false}
-        />
-      </div>
+  
     </div>
   );
 };

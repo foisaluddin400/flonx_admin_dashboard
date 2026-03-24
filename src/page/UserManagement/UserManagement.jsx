@@ -15,7 +15,7 @@ const UserManagement = () => {
   const pageSize = 10;
 
   // Dummy data
-  const dummyUsers = Array.from({ length: 25 }, (_, index) => ({
+  const dummyUsers = Array.from({ length: 5 }, (_, index) => ({
     key: index + 1,
     name: `User ${index + 1}`,
     email: `user${index + 1}@example.com`,
@@ -166,16 +166,6 @@ const UserManagement = () => {
         scroll={{ x: "max-content" }}
         className="custom-table "
       />
-
-      <div className="mt-4 flex justify-center">
-        <Pagination
-          current={currentPage}
-          pageSize={pageSize}
-          total={dummyUsers.length}
-          onChange={handlePageChange}
-          showSizeChanger={false}
-        />
-      </div>
 
       {/* Modal */}
       <Modal

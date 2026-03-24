@@ -12,7 +12,7 @@ const Earning = () => {
   const pageSize = 10;
 
   // Dummy Shift Data
-  const dummyOrders = Array.from({ length: 25 }, (_, index) => ({
+  const dummyOrders = Array.from({ length: 5 }, (_, index) => ({
     key: index + 1,
     orderCode: `ORD-${1000 + index + 1}`,
     payOn: "12 Jun 2026",
@@ -129,16 +129,8 @@ const Earning = () => {
         className="custom-table"
       />
 
-      {/* Pagination */}
-      <div className="mt-4 flex justify-center">
-        <Pagination
-          current={currentPage}
-          pageSize={pageSize}
-          total={dummyOrders.length}
-          onChange={handlePageChange}
-          showSizeChanger={false}
-        />
-      </div>
+
+   
     </div>
   );
 };

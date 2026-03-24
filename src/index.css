@@ -88,15 +88,12 @@
   border-radius: 50% !important; /* Make buttons circular */
 }
 
-/* Active pagination button */
-.ant-pagination-item-active {
-  background-color: #D9000A !important; /* Active background color */
-  border-color: #D9000A !important;    /* Active border color */
-}
 
 /* Active pagination button text */
-.ant-pagination-item-active > a {
-  color: white !important; /* Ensure active text color is white */
+.ant-pagination-item-active {
+  background-color: #822CE71A !important; /* Active background color */
+  border-color: #2A2448 !important;  
+    /* Active border color */
 }
 
 /* Hover effect for buttons */

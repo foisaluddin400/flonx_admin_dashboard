@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigate } from "../../Navigate";
-import { Form, Input, message } from "antd";
 
 const UpdatePassword = () => {
-  const [form] = Form.useForm();
+  const [formValues, setFormValues] = useState({
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
 
-  const handleSubmit = (values) => {
-    console.log("Password Data:", values);
-    message.success("Password updated successfully!");
-    form.resetFields();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (formValues.newPassword !== formValues.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    console.log("Password Data:", formValues);
+    alert("Password updated successfully!");
+
+    setFormValues({
+      oldPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
   };
 
   return (
@@ -24,70 +47,64 @@ const UpdatePassword = () => {
         </div>
 
         <div className="p-4">
-          <Form
-            form={form}
-            layout="vertical"
-            onFinish={handleSubmit}
-            className="custom-form"
-          >
+          <form onSubmit={handleSubmit} className="space-y-4">
+            
             {/* Old Password */}
-            <Form.Item
-              label="Old Password"
-              name="oldPassword"
-              rules={[{ required: true, message: "Please enter old password" }]}
-            >
-              <Input.Password
-                className="custom-input"
+            <div>
+              <label className="block mb-1 text-[#C9C6D6]">
+                Old Password
+              </label>
+              <input
+                type="password"
+                name="oldPassword"
+                value={formValues.oldPassword}
+                onChange={handleChange}
                 placeholder="Enter old password"
+                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+                required
               />
-            </Form.Item>
+            </div>
 
             {/* New Password */}
-            <Form.Item
-              label="New Password"
-              name="newPassword"
-              rules={[{ required: true, message: "Please enter new password" }]}
-            >
-              <Input.Password
-                className="custom-input"
+            <div>
+              <label className="block mb-1 text-[#C9C6D6]">
+                New Password
+              </label>
+              <input
+                type="password"
+                name="newPassword"
+                value={formValues.newPassword}
+                onChange={handleChange}
                 placeholder="Enter new password"
+                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+                required
               />
-            </Form.Item>
+            </div>
 
             {/* Confirm Password */}
-            <Form.Item
-              label="Confirm Password"
-              name="confirmPassword"
-              dependencies={["newPassword"]}
-              rules={[
-                { required: true, message: "Please confirm your password" },
-                ({ getFieldValue }) => ({
-                  validator(_, value) {
-                    if (!value || getFieldValue("newPassword") === value) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject(
-                      new Error("Passwords do not match")
-                    );
-                  },
-                }),
-              ]}
-            >
-              <Input.Password
-                className="custom-input"
+            <div>
+              <label className="block mb-1 text-[#C9C6D6]">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formValues.confirmPassword}
+                onChange={handleChange}
                 placeholder="Confirm new password"
+                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+                required
               />
-            </Form.Item>
+            </div>
 
-            <Form.Item>
-              <button
-                type="submit"
-                className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
-              >
-                Update Password
-              </button>
-            </Form.Item>
-          </Form>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
+            >
+              Update Password
+            </button>
+          </form>
         </div>
       </div>
     </div>
