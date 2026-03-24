@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaArrowLeft } from "react-icons/fa";
+
 import ArrayLeft from './components/icon/ArrayLeft';
 export const Navigate = ({title}) => {
     const navigate = useNavigate()
   return (
-    <div className=''>
+    <div className='font-montserrat '>
         <div
           style={{
             display: "flex",

@@ -6,6 +6,8 @@ import ProductIco from "../icon/ProductIco";
 import EarningIco from "../icon/EarningIco";
 import CategoryIco from "../icon/CategoryIco";
 import ShiftsIco from "../icon/ShiftsIco";
+import { FaChevronDown } from "react-icons/fa";
+import { Select } from "antd";
 
 const Activity = () => {
   return (
@@ -17,11 +19,17 @@ const Activity = () => {
           Showing activities for Today
         </h2>
 
-        <select className="bg-[#1a1238] text-gray-300 px-4 py-2 rounded-lg border border-[#2A2448] outline-none">
-          <option>Today</option>
-          <option>Yesterday</option>
-          <option>This Week</option>
-        </select>
+            <Select
+          className="custom-select "
+          placeholder="Select"
+          dropdownClassName="custom-select-dropdown"
+          suffixIcon={<FaChevronDown className="text-[#C9C6D6] text-sm mt-2" />} // Optional: Remove default icon if you want a custom one
+        >
+          <Option value="all">All</Option>
+          <Option value="snack">Today</Option>
+          <Option value="main-course">Yesterday</Option>
+    
+        </Select>
       </div>
 
       <div className="flex px-5 py-4 justify-between items-center">
