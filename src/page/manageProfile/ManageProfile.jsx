@@ -32,25 +32,19 @@ const ManageProfile = () => {
 
         <div className="grid p-3 grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-gray-400 italic">Venue Name</p>
+            <p className="text-gray-400 italic">Full Name</p>
             <p>{venue.name}</p>
           </div>
+      
           <div>
-            <p className="text-gray-400 italic">Owner Name</p>
-            <p>{venue.owner}</p>
-          </div>
-          <div>
-            <p className="text-gray-400 italic">Email</p>
+            <p className="text-gray-400 italic">Email Address</p>
             <p>{venue.email}</p>
           </div>
           <div>
-            <p className="text-gray-400 italic">Contact Number</p>
+            <p className="text-gray-400 italic">Contact Phone / WhatsApp</p>
             <p>{venue.contact}</p>
           </div>
-          <div className="col-span-2">
-            <p className="text-gray-400 italic">Location</p>
-            <p>{venue.location}</p>
-          </div>
+          
         </div>
       </div>
 

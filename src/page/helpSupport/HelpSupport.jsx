@@ -63,8 +63,8 @@ const HelpSupport = () => {
       render: (_, record) => (
         <span
           className={`px-3 py-1 italic rounded-full text-xs ${
-            record.status === "Approved"
-              ? "bg-green-500/20 text-green-400"
+            record.status === "Resolved"
+              ? "bg-[#3D8BFF33] text-[#3D8BFF]"
               : "bg-yellow-500/20 text-yellow-400"
           }`}
         >
@@ -79,7 +79,7 @@ const HelpSupport = () => {
       render: (_, record) => (
         <div className="flex justify-end">
           <Link to={`/dashboard/HelpSupport/details/${record.key}`}>
-            <button className="w-[36px] h-[36px] text-lg bg-[#22C55E1A] flex justify-center items-center text-[#22C55E] rounded cursor-pointer">
+            <button className="w-[36px] h-[36px] text-lg bg-[#822CE71A] flex justify-center items-center text-[#22C55E] rounded cursor-pointer">
             <EyeIco />
           </button>
           </Link>

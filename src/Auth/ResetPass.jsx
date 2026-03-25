@@ -1,107 +1,116 @@
-
 import React, { useState } from "react";
-import { Form, Input, Button } from "antd";
-import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const ResetPass = () => {
-    const [form] = Form.useForm();
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const onFinish = (values) => {
-    console.log("Form Values:", values);
-  
+  const [formData, setFormData] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validation
+    if (formData.password.length < 6) {
+      return setError("Password must be at least 6 characters");
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      return setError("Passwords do not match");
+    }
+
+    setError("");
+
+    console.log("Form Data:", formData);
+
+    // Navigate after success
+    navigate("/");
   };
 
   return (
-   <div className="flex font-nunito justify-center items-center min-h-screen px-4 lg:px-0">
-      <div className="w-full max-w-lg  lg:p-8 p-4 border">
+    <div className="flex font-nunito justify-center items-center min-h-screen px-4 lg:px-0 bg-[#0F0B1A]">
+      <div className="w-full max-w-lg lg:p-8 p-4 border border-[#2A2448] rounded-lg bg-[#822CE71A]">
         {/* Title */}
-        <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-          Set a New Password
+        <h2 className="text-2xl font-semibold text-white mb-2 italic">
+          Set New Password
         </h2>
-        <p className="text-gray-600 mb-6 text-sm">
-          Secure your account by creating a new password.
+        <p className="text-gray-400 mb-6 text-sm">
+          Sign in to continue exploring and managing your Venue.
         </p>
 
-        {/* Ant Design Form */}
-        <Form form={form} layout="vertical" onFinish={onFinish}>
-          {/* Email */}
-        
-
+        <form onSubmit={handleSubmit}>
           {/* Password */}
-          <Form.Item
-            label="Enter New Password"
-            name="password"
-            rules={[
-              { required: true, message: "Please enter your password!" },
-              { min: 6, message: "Password must be at least 6 characters!" },
-            ]}
-          >
-            <Input
-            style={{height:'50px'}}
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter New Password"
-              suffix={
-                <span
-                  className="cursor-pointer text-gray-500"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
-              }
-            />
-          </Form.Item>
+          <div className="mb-4">
+            <label className="text-gray-400 block mb-1">
+              Set A New Passward
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter New Password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+              />
+              <span
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+          </div>
 
           {/* Confirm Password */}
-          <Form.Item
-            label="Confirm New Password"
-            name="confirmPassword"
-            dependencies={["password"]}
-            rules={[
-              { required: true, message: "Please confirm your password!" },
-              ({ getFieldValue }) => ({
-                validator(_, value) {
-                  if (!value || getFieldValue("password") === value) {
-                    return Promise.resolve();
-                  }
-                  return Promise.reject(
-                    new Error("Passwords do not match!")
-                  );
-                },
-              }),
-            ]}
-          >
-            <Input
-            style={{height:'50px'}}
-              type={showConfirmPassword ? "text" : "password"}
-              placeholder="Confirm New Password"
-              suffix={
-                <span
-                  className="cursor-pointer text-gray-500"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
-              }
-            />
-          </Form.Item>
+          <div className="mb-4">
+            <label className="text-gray-400 block mb-1">Confirm Password</label>
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                name="confirmPassword"
+                placeholder="Confirm New Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+              />
+              <span
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+          </div>
 
-          {/* Continue Button */}
-          <Form.Item>
-          <Link to={'/'}>
-           <button
-              
-              htmlType="submit"
-              className="w-full bg-red-500 py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
+          {/* Error */}
+          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+          {/* Button */}
+          <Link to={"/"}>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 mt-2 rounded-full"
             >
               Continue
-            </button></Link>
-          </Form.Item>
-        </Form>
-
-    
+            </button>
+          </Link>
+        </form>
       </div>
     </div>
   );

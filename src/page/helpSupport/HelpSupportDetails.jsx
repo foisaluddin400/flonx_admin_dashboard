@@ -8,6 +8,7 @@ const HelpSupportDetails = () => {
   const venue = {
     name: "Midnight Lounge",
     owner: "Daniel Roberts",
+    reason: "Notification Issue",
     email: "daniel@midnightlounge.com",
     contact: "+1 (512) 555-0199",
     location: "Austin, Texas, USA",
@@ -36,13 +37,18 @@ const HelpSupportDetails = () => {
             <p>{venue.email}</p>
           </div>
           <div>
-            <p className="text-gray-400">Availability</p>
-            <button className="bg-[#22C55E33] px-2 mt-1 text-[#22C55E] rounded-full ">In Stock</button>
+            <p className="text-gray-400 italic">Contact Reason</p>
+            <p>{venue.reason}</p>
+          </div>
+            <div>
+            <p className="text-gray-400 italic">Submitted On</p>
+            <p>July 10, 2025</p>
           </div>
           <div>
-            <p className="text-gray-400 italic">Slogan</p>
-            <p>{venue.contact}</p>
+            <p className="text-gray-400">Status</p>
+            <button className="bg-[#FFB02033] px-2 mt-1 text-[#FFB020] rounded-full ">To Do</button>
           </div>
+         
           <div className="col-span-2">
             <p className="text-gray-400 italic">Message</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat deleniti explicabo odio quasi voluptates repellendus vel minima? Sed, nobis?</p>

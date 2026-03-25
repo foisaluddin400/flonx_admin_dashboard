@@ -14,13 +14,13 @@ const Activity = () => {
     <div className="border border-[#2A2448] rounded-xl  mt-6">
       
       {/* Header */}
-      <div className="flex border-b px-3 py-2 border-[#2A2448] justify-between items-center">
+      <div className="flex border-b px-3 py-3 border-[#2A2448] justify-between items-center">
         <h2 className="text-lg font-semibold italic text-gray-300">
           Showing activities for Today
         </h2>
 
             <Select
-          className="custom-select "
+          className="custom-select -mt-2"
           placeholder="Select"
           dropdownClassName="custom-select-dropdown"
           suffixIcon={<FaChevronDown className="text-[#C9C6D6] text-sm mt-2" />} // Optional: Remove default icon if you want a custom one

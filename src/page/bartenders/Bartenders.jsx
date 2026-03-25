@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Input, Modal, Pagination, Table, message } from "antd";
+import { Input, Modal, Pagination, Select, Table, message } from "antd";
 import { MdBlockFlipped } from "react-icons/md";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaChevronDown } from "react-icons/fa";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { SearchOutlined } from "@ant-design/icons";
@@ -136,11 +136,19 @@ const Bartenders = () => {
         <Navigate title={"Bartenders"} />
         <div className="flex  items-center">
           <div className=" px-3 border-[#2A2448] justify-between items-center">
-            <select className="bg-[#1a1238] text-gray-300 px-4 py-2 rounded-lg border border-[#2A2448] outline-none">
-              <option>All Users</option>
-              <option>Active Users</option>
-              <option>Blocked Users</option>
-            </select>
+            <Select
+                      className="custom-select -mt-2"
+                      placeholder="Select User"
+                      dropdownClassName="custom-select-dropdown"
+                      suffixIcon={<FaChevronDown className="text-[#C9C6D6] text-sm mt-2" />} // Optional: Remove default icon if you want a custom one
+                    >
+                      <Option value="all">All Users</Option>
+                      <Option value="snack">Active Users</Option>
+                      <Option value="main-course">Blocked Users</Option>
+                      
+            
+            
+                    </Select>
           </div>
           <Input placeholder="Search By Name..." className="custom-input" />
         </div>

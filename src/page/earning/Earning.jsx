@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Input, Pagination, Table } from "antd";
+import { Input, Pagination, Select, Table } from "antd";
 import { LuEye } from "react-icons/lu";
 import { Navigate } from "../../Navigate";
 import AddIco from "../../components/icon/AddIco";
 import EyeIco from "../../components/icon/EyeIco";
 import HigherIco from "../../components/icon/HigherIco";
 import EarningIco from "../../components/icon/EarningIco";
+import { FaChevronDown } from "react-icons/fa";
 
 const Earning = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,16 +67,24 @@ const Earning = () => {
  <div className="border border-[#2A2448] rounded-xl  mb-5">
       
       {/* Header */}
-      <div className="flex border-b px-3 py-2 border-[#2A2448] justify-between items-center">
+      <div className="flex border-b px-3 py-4 border-[#2A2448] justify-between items-center">
         <h2 className="text-[18px] italic font-semibold text-gray-300">
           Showing activities for Today
         </h2>
 
-        <select className="bg-[#1a1238] text-gray-300 px-4 py-2 rounded-lg border border-[#2A2448] outline-none">
-          <option>Today</option>
-          <option>Yesterday</option>
-          <option>This Week</option>
-        </select>
+        <Select
+          className="custom-select -mt-2"
+          placeholder="Select "
+          dropdownClassName="custom-select-dropdown"
+          suffixIcon={<FaChevronDown className="text-[#C9C6D6] text-sm mt-2" />} // Optional: Remove default icon if you want a custom one
+        >
+          <Option value="all">Today</Option>
+          <Option value="snack">Yesterday</Option>
+          <Option value="main-course">This week</Option>
+          
+
+
+        </Select>
       </div>
 
       <div className="flex px-5 py-4 justify-between items-center">

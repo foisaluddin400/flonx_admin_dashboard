@@ -40,7 +40,7 @@ const Login = () => {
               onChange={handleChange}
               placeholder="Enter Email Address"
               className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
-              required
+              
             />
           </div>
 
@@ -55,7 +55,7 @@ const Login = () => {
                 onChange={handleChange}
                 placeholder="••••••••"
                 className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
-                required
+               
               />
               <button
                 type="button"
@@ -88,14 +88,16 @@ const Login = () => {
           </div>
 
           {/* Login Button */}
+          <Link to={'/'}>
+          
           <button
             type="submit"
-            className="w-full bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
+            className="w-full bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 mt-2 rounded-full"
           >
-            Login
-          </button>
+            Log In
+          </button></Link>
         </form>
-        <span className="flex justify-center pt-2 text-white">No account yet?  <Link to={'/joinAs'}><span className="text-[#822CE7]"> Create an account</span></Link></span>
+     
       </div>
     </div>
   );
