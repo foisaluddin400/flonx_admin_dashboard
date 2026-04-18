@@ -115,12 +115,11 @@ const AddLegalCompany = () => {
               >
                 <Input className="custom-input" placeholder="Official Website"/>
               </Form.Item>
-
             </div>
 
             <Form.Item>
               <button
-                type="submit"
+                type="submit" 
                 disabled={isLoading}
                 className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
               >
