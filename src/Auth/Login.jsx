@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoginAdminMutation } from "../page/redux/api/userApi";
@@ -33,15 +32,6 @@ const Login = () => {
   }, []);
 
   // ✅ Handle input change
-=======
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-const Login = () => {
-  const [formValues, setFormValues] = useState({ email: "", password: "", remember: false });
-  const [showPassword, setShowPassword] = useState(false);
-
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormValues((prev) => ({
@@ -50,7 +40,6 @@ const Login = () => {
     }));
   };
 
-<<<<<<< HEAD
   // ✅ Submit
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,12 +79,6 @@ const Login = () => {
       message.error(err?.data?.message || "Login failed");
       console.error("Login Error:", err);
     }
-=======
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Values:", formValues);
-    // Here you can handle API login
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
   };
 
   return (
@@ -108,32 +91,19 @@ const Login = () => {
         </p>
 
         {/* Form */}
-<<<<<<< HEAD
      <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
           <div>
             <label className="text-gray-400 block mb-1">
               Enter Email Address
             </label>
-=======
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email */}
-          <div>
-            <label className="text-gray-400 block mb-1">Enter Email Address</label>
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
             <input
               type="email"
               name="email"
               value={formValues.email}
               onChange={handleChange}
-<<<<<<< HEAD
               className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg"
               required
-=======
-              placeholder="Enter Email Address"
-              className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
-              
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
             />
           </div>
 
@@ -146,63 +116,36 @@ const Login = () => {
                 name="password"
                 value={formValues.password}
                 onChange={handleChange}
-<<<<<<< HEAD
                 className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg"
                 required
-=======
-                placeholder="••••••••"
-                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
-               
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-<<<<<<< HEAD
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-=======
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               >
                 {showPassword ? "🙈" : "👁️"}
               </button>
             </div>
           </div>
 
-<<<<<<< HEAD
           {/* Remember */}
           <div className="flex items-center justify-between">
-=======
-          {/* Remember & Forgot */}
-          <div className="flex items-center justify-between mb-4">
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
             <label className="flex items-center gap-2 text-gray-400">
               <input
                 type="checkbox"
                 name="remember"
                 checked={formValues.remember}
                 onChange={handleChange}
-<<<<<<< HEAD
               />
               Remember me
             </label>
 
             <Link to={"/forgot-password"} className="text-sm text-[#9D5BFF]">
-=======
-                className="accent-[#822CE7]"
-              />
-              Remember me
-            </label>
-            <Link
-              to={"/forgot-password"}
-              className="text-sm text-[#9D5BFF] hover:underline focus:outline-none"
-            >
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               Forget password?
             </Link>
           </div>
 
-<<<<<<< HEAD
           {/* Button */}
           <button
             type="submit"
@@ -220,17 +163,6 @@ const Login = () => {
               "Login"
             )}
           </button>
-=======
-          {/* Login Button */}
-          <Link to={'/'}>
-          
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 mt-2 rounded-full"
-          >
-            Log In
-          </button></Link>
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
         </form>
      
       </div>

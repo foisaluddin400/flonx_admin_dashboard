@@ -1,9 +1,5 @@
 import { baseApi } from "./baseApi";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
 const useApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     loginAdmin: builder.mutation({
@@ -15,25 +11,16 @@ const useApi = baseApi.injectEndpoints({
         };
       },
     }),
-<<<<<<< HEAD
 
     getProfile: builder.query({
       query: () => {
         return {
           url: "/user/user-profile",
-=======
-    
-    getProfile: builder.query({
-      query: () => {
-        return {
-          url: "/admin/profile",
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
           method: "GET",
         };
       },
       providesTags: ["updateProfile"],
     }),
-<<<<<<< HEAD
 
     getAllUser: builder.query({
       query: ({ searchTerm, page, limit, status }) => ({
@@ -124,8 +111,6 @@ const useApi = baseApi.injectEndpoints({
       invalidatesTags: ["updateProfile"],
     }),
 
-=======
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
     forgotPassword: builder.mutation({
       query: (email) => {
         return {
@@ -154,23 +139,13 @@ const useApi = baseApi.injectEndpoints({
       },
     }),
     updateProfile: builder.mutation({
-<<<<<<< HEAD
       query: ({ data }) => {
         return {
           url: "/user/update-profile",
-=======
-      query: (data) => {
-        return {
-          url: "/admin/edit-profile",
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
           method: "PATCH",
           body: data,
         };
       },
-<<<<<<< HEAD
-=======
-      invalidatesTags: ["updateProfile"],
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
     }),
     changePassword: builder.mutation({
       query: (data) => {
@@ -187,10 +162,6 @@ const useApi = baseApi.injectEndpoints({
           url: `/dashboard/get-all-user?role=${user}&page=${page}&searchTerm=${search}`,
           method: "GET",
         };
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
       },
       providesTags: ["host"],
     }),
@@ -201,11 +172,7 @@ const useApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-<<<<<<< HEAD
       invalidatesTags: ["host"],
-=======
-      invalidatesTags: ["host"], 
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
     }),
   }),
 });
@@ -220,7 +187,6 @@ export const {
   useChangePasswordMutation,
   useGetHostUserQuery,
   useBlockUserHostMutation,
-<<<<<<< HEAD
   useGetAllUserQuery,
   useGetSingleUserQuery,
   useUserBlockUnblockMutation,
@@ -228,6 +194,4 @@ export const {
   useGetSingleBartenderQuery,
   useGetSingleVenueOwnerQuery,
   useGetAllVenueOwnerQuery
-=======
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
 } = useApi;

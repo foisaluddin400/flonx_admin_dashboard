@@ -8,13 +8,9 @@ import ProductIco from "../icon/ProductIco";
 import ShiftsIco from "../icon/ShiftsIco";
 import Activity from "./Activity";
 import RecentShifts from "./RecentShifts";
-<<<<<<< HEAD
 import { useGetDahboardTotalQuery } from "../../page/redux/api/manageApi";
 const Dashboard = () => {
   const {data:dashboardTotalData} = useGetDahboardTotalQuery()
-=======
-const Dashboard = () => {
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
   return (
     <div className=" ">
       <div className="grid grid-cols-3 gap-4">
@@ -25,11 +21,7 @@ const Dashboard = () => {
               Total User
             </h1>
             <div className="flex pt-5 justify-between items-center ">
-<<<<<<< HEAD
               <h1 className="text-[#822CE7] font-bold text-3xl italic ">{dashboardTotalData?.data?.totalCustomers || 0}</h1>
-=======
-              <h1 className="text-[#822CE7] font-bold text-3xl italic ">17</h1>
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               <div className="bg-[#822CE71A] w-[40px] h-[40px] flex justify-center items-center rounded-lg">
                 <CategoryIco color={"#822CE7"}></CategoryIco>
               </div>
@@ -43,11 +35,7 @@ const Dashboard = () => {
               Total Bartenders
             </h1>
             <div className="flex pt-5 justify-between items-center ">
-<<<<<<< HEAD
               <h1 className="text-[#822CE7] text-3xl font-bold italic">{dashboardTotalData?.data?.totalBartenders || 0}</h1>
-=======
-              <h1 className="text-[#822CE7] text-3xl font-bold italic">17</h1>
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               <div className="bg-[#822CE71A] w-[40px] h-[40px] flex justify-center items-center rounded-lg">
                 <ProductIco color={"#822CE7"} />
               </div>
@@ -61,11 +49,7 @@ const Dashboard = () => {
               Total Venue Owners
             </h1>
             <div className="flex pt-5 justify-between items-center ">
-<<<<<<< HEAD
               <h1 className="text-[#822CE7] text-3xl font-bold italic">{dashboardTotalData?.data?.totalVenueOwners || 0}</h1>
-=======
-              <h1 className="text-[#822CE7] text-3xl font-bold italic">17</h1>
->>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               <div className="bg-[#822CE71A] w-[40px] h-[40px] flex justify-center items-center rounded-lg">
                 <ShiftsIco color={"#822CE7"} />
               </div>
