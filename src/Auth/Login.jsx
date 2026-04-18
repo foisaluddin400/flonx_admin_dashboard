@@ -104,6 +104,7 @@ const Login = () => {
               onChange={handleChange}
               className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg"
               required
+              placeholder="Enter Your Email"
             />
           </div>
 
@@ -118,6 +119,7 @@ const Login = () => {
                 onChange={handleChange}
                 className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-lg"
                 required
+                placeholder="Enter Your Password"
               />
               <button
                 type="button"

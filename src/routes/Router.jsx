@@ -42,6 +42,7 @@ import LegalCompany from "../page/legalCompany/LegalCompany";
 import TermsCondition from "../page/terms/TermsCondition";
 import PrivacyPolicy from "../page/privecy/PrivacyPolicy";
 import AddLegalCompany from "../page/legalCompany/AddLegalCompany";
+import ProtectedRoute from "../protectedRoute/ProtectedRoute";
 
 
 export const router = createBrowserRouter([
@@ -49,7 +50,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: (
      
-        <DashboardLayout></DashboardLayout>
+        <ProtectedRoute><DashboardLayout></DashboardLayout></ProtectedRoute>
       
     ),
     children: [
