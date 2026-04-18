@@ -171,7 +171,11 @@ export const router = createBrowserRouter([
 
 
   {
+<<<<<<< HEAD
         path: "/dashboard/updateProfile/:id",
+=======
+        path: "/dashboard/updateProfile",
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
         element: <UpdateProfile></UpdateProfile>,
       },
 

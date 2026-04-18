@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate } from "../../Navigate";
 import { Form, Input, message } from "antd";
+<<<<<<< HEAD
 import { useAddLegalCompanyMutation } from "../redux/api/manageApi";
 
 const AddLegalCompany = () => {
@@ -27,6 +28,16 @@ const AddLegalCompany = () => {
     } catch (error) {
       message.error("Something went wrong!");
     }
+=======
+
+const AddLegalCompany = () => {
+  const [form] = Form.useForm();
+
+  const handleSubmit = (values) => {
+    console.log("Form Values:", values);
+    message.success("Company information updated successfully!");
+    form.resetFields();
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
   };
 
   return (
@@ -56,15 +67,27 @@ const AddLegalCompany = () => {
               <Form.Item
                 label="Company Name"
                 name="companyName"
+<<<<<<< HEAD
                 rules={[{ required: true }]}
               >
                 <Input className="custom-input" placeholder="Company Name"/>
+=======
+                rules={[
+                  { required: true, message: "Please enter company name" },
+                ]}
+              >
+                <Input
+                  className="custom-input"
+                  placeholder="Enter company name"
+                />
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               </Form.Item>
 
               {/* Business Type */}
               <Form.Item
                 label="Business Type"
                 name="businessType"
+<<<<<<< HEAD
                 rules={[{ required: true }]}
               >
                 <Input className="custom-input" placeholder="Business Type"/>
@@ -98,32 +121,106 @@ const AddLegalCompany = () => {
               </Form.Item>
 
               {/* Address */}
+=======
+                rules={[
+                  { required: true, message: "Please enter business type" },
+                ]}
+              >
+                <Input
+                  className="custom-input"
+                  placeholder="Enter business type"
+                />
+              </Form.Item>
+
+              {/* Contact Email */}
+              <Form.Item
+                label="Contact Email"
+                name="email"
+                rules={[
+                  { required: true, message: "Please enter contact email" },
+                  { type: "email", message: "Enter a valid email" },
+                ]}
+              >
+                <Input
+                  className="custom-input"
+                  placeholder="Enter contact email"
+                />
+              </Form.Item>
+
+              {/* Location */}
+              <Form.Item
+                label="Location"
+                name="location"
+                rules={[
+                  { required: true, message: "Please enter location" },
+                ]}
+              >
+                <Input
+                  className="custom-input"
+                  placeholder="Enter location"
+                />
+              </Form.Item>
+
+              {/* Registered Address */}
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               <Form.Item
                 label="Registered Address"
                 name="registeredAddress"
                 className="col-span-2"
+<<<<<<< HEAD
                 rules={[{ required: true }]}
               >
                 <Input.TextArea rows={3} className="custom-input" placeholder="Registered Address"/>
+=======
+                rules={[
+                  { required: true, message: "Please enter registered address" },
+                ]}
+              >
+                <Input.TextArea
+                  rows={3}
+                  className="custom-input"
+                  placeholder="Enter registered address"
+                />
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               </Form.Item>
 
               {/* Website */}
               <Form.Item
+<<<<<<< HEAD
                 label="Official Website"
                 name="officialWebsite"
                 className="col-span-2"
               >
                 <Input className="custom-input" placeholder="Official Website"/>
               </Form.Item>
+=======
+                label="Official Website Link"
+                name="website"
+                className="col-span-2"
+              >
+                <Input
+                  className="custom-input"
+                  placeholder="Enter official website link"
+                />
+              </Form.Item>
+
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
             </div>
 
             <Form.Item>
               <button
+<<<<<<< HEAD
                 type="submit" 
                 disabled={isLoading}
                 className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
               >
                 {isLoading ? "Saving..." : "Save The Changes"}
+=======
+                type="submit"
+                className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
+              >
+                Save The Changes
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               </button>
             </Form.Item>
           </Form>

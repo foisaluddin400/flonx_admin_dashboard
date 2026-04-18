@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Navigate } from "../../Navigate";
 import { Form, Input, Upload, message, Spin } from "antd";
@@ -93,6 +94,28 @@ const handlePlaceChanged = () => {
   }
 };
   // 📸 Upload
+=======
+import React, { useState } from "react";
+import { Navigate } from "../../Navigate";
+import {
+  Button,
+  Form,
+  Input,
+  InputNumber,
+  Select,
+  Upload,
+  message,
+} from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+
+const { Option } = Select;
+
+const UpdateProfile = () => {
+  const [form] = Form.useForm();
+  const [fileList, setFileList] = useState([]);
+
+  // Upload handle
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
   const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
@@ -106,6 +129,7 @@ const handlePlaceChanged = () => {
         reader.onload = () => resolve(reader.result);
       });
     }
+<<<<<<< HEAD
     const imgWindow = window.open(src);
     imgWindow?.document.write(`<img src="${src}" />`);
   };
@@ -144,6 +168,21 @@ const handlePlaceChanged = () => {
     }
   };
   if (isLoading) return <Spin />;
+=======
+    const image = new Image();
+    image.src = src;
+    const imgWindow = window.open(src);
+    imgWindow?.document.write(image.outerHTML);
+  };
+
+  const handleSubmit = (values) => {
+    console.log("Form Values:", values);
+    console.log("Uploaded Files:", fileList);
+    message.success("Product added successfully!");
+    form.resetFields();
+    setFileList([]);
+  };
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
 
   return (
     <div className="p-3 h-[87vh] overflow-auto">
@@ -151,7 +190,14 @@ const handlePlaceChanged = () => {
 
       <div className="mt-6 border text-white border-[#2A2448] rounded-xl space-y-3">
         <div className="border-b border-[#2A2448] p-3">
+<<<<<<< HEAD
           <h1 className="text-[18px] italic font-semibold">Update Profile</h1>
+=======
+          <h1 className="text-[18px] italic font-semibold pb-1">Update Profile</h1>
+          <p className="text-[#C9C6D6] italic">
+        Review and update your details as needed.
+          </p>
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
         </div>
 
         <div className="p-4">
@@ -161,13 +207,19 @@ const handlePlaceChanged = () => {
             onFinish={handleSubmit}
             className="custom-form"
           >
+<<<<<<< HEAD
             {/* Image */}
             <Form.Item label="Upload Image">
+=======
+            {/* Product Image */}
+            <Form.Item label="Product Image">
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               <Upload
                 listType="picture-card"
                 fileList={fileList}
                 onChange={onChange}
                 onPreview={onPreview}
+<<<<<<< HEAD
               >
                 {fileList.length < 1 && <PlusOutlined />}
               </Upload>
@@ -228,14 +280,93 @@ const handlePlaceChanged = () => {
                 <Marker position={position} />
               </GoogleMap>
             )}
+=======
+                multiple
+                className="custom-upload"
+              >
+                {fileList.length < 5 && (
+                  <div>
+                    <PlusOutlined />
+                    <div style={{ marginTop: 8, color: "white" }}>Upload Venue Image here</div>
+                  </div>
+                )}
+              </Upload>
+            </Form.Item>
+
+            {/* Product Name */}
+           <div className="grid grid-cols-2 gap-4">
+             <Form.Item
+              label="Profile Name"
+              name="name"
+              rules={[{ required: true, message: "Please enter profile name" }]}
+            >
+              <Input
+                className="custom-input"
+                placeholder="Enter profile name"
+              />
+            </Form.Item>
+
+            {/* Product Slogan */}
+         
+
+           <Form.Item
+              label="Venue Email"
+              name="email"
+              rules={[{ required: true, message: "Please enter venue email" }]}
+            >
+              <Input
+                className="custom-input"
+                placeholder="Enter venue email"
+              />
+            </Form.Item>
+
+            {/* Product Slogan */}
+            <Form.Item
+              label="Contact Number"
+              name="contact"
+            
+              rules={[
+                { required: true, message: "Please enter contact number" },
+              ]}
+            >
+              <Input
+                className="custom-input"
+                placeholder="Enter contact number"
+              />
+            </Form.Item>
+ <Form.Item
+              label="Location"
+              name="location"
+            
+              rules={[
+                { required: true, message: "Please enter location" },
+              ]}
+            >
+              <Input
+                className="custom-input"
+                placeholder="Enter location"
+              />
+            </Form.Item>
+          
+
+           </div>
+            
+      
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
 
             <Form.Item>
               <button
                 type="submit"
+<<<<<<< HEAD
                 disabled={updating}
                 className="py-3 px-4 rounded-full text-white bg-[#822CE7]"
               >
                 {updating ? "Updating..." : "Update Profile"}
+=======
+                className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
+              >
+                Update Details
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
               </button>
             </Form.Item>
           </Form>

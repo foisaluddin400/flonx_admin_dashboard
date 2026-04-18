@@ -14,11 +14,14 @@
 :root{
   background-color: #0F0B1A;
 }
+<<<<<<< HEAD
 .custom-delete-modal .ant-modal-content {
   background-color: #161126 !important; /* black background */
   border-radius: 12px;
   border: 1px solid #2A2448;
 }
+=======
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
 
 .children-menu {
   overflow: hidden;

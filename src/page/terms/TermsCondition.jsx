@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { useState, useRef, useEffect } from "react";
+=======
+import { useState, useRef } from "react";
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
 import JoditEditor from "jodit-react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "../../Navigate";
+<<<<<<< HEAD
 import { message, Spin } from "antd";
 import { useGetPrivecyQuery, useGetTermsConditionsQuery, usePostPrivecyMutation, usePostTermsConditionMutation } from "../redux/api/manageApi";
 
@@ -26,11 +31,26 @@ const TermsCondition = () => {
 
     message.success(res?.message);
   };
+=======
+
+const TermsCondition = () => {
+  const editor = useRef(null);
+  const [content, setContent] = useState("");
+  // const [isLoading, seLoading] = useState(false)
+  const navigate = useNavigate();
+  // const handleTerms = () => {
+  //     console.log(content)
+  // }
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
   const config = {
     readonly: false,
     placeholder: "Start typings...",
     style: {
+<<<<<<< HEAD
       height: 600,
+=======
+      height: 650,
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
     },
     buttons: [
       "image",
@@ -45,6 +65,7 @@ const TermsCondition = () => {
     ],
   };
 
+<<<<<<< HEAD
   useEffect(() => {
     setContent(termData?.data?.description);
   }, [termData]);
@@ -55,10 +76,20 @@ const TermsCondition = () => {
       <JoditEditor
       
           ref={editor}
+=======
+  return (
+    <div className="  p-3 ">
+       <Navigate title="Terms And Condition" />
+
+      <JoditEditor
+      
+        ref={editor}
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
         value={content}
         config={config}
         tabIndex={1}
         onBlur={(newContent) => setContent(newContent)}
+<<<<<<< HEAD
       />
 
       <div className="mt-5 flex justify-center">
@@ -77,6 +108,14 @@ const TermsCondition = () => {
                 ) : (
                   "Update"
                 )}
+=======
+        // onChange={newContent => { }}
+      />
+
+      <div className="mt-5 flex justify-center">
+        <button className="bg-gradient-to-tr w-[185px] from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full">
+          Save & change
+>>>>>>> 5f8646040732fee62fae286a9e1a6aa760b51f59
         </button>
       </div>
     </div>
