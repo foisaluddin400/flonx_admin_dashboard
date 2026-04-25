@@ -3,36 +3,36 @@ import { Table } from "antd";
 import { LuEye } from "react-icons/lu";
 import EyeIco from "../icon/EyeIco";
 import { Link } from "react-router-dom";
+import { useGetSupportQuery } from "../../page/redux/api/manageApi";
 
 const RecentShifts = () => {
+  const { data: supportData, isLoading } = useGetSupportQuery({
+    page: 1,
+    limit: 4,
+  });
+
 
   const showModal2 = (record) => {
     console.log("View:", record);
   };
 
-  const paginatedUsers = [
-    {
-      key: 1,
-      no: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      image: "https://i.pravatar.cc/100?img=1",
-      requestedOn: "12 Jun 2026",
-      shiftDate: "15 Jun 2026",
-      status: "Resolved",
-    },
-    {
-      key: 2,
-      no: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      image: "https://i.pravatar.cc/100?img=2",
-      requestedOn: "10 Jun 2026",
-      shiftDate: "14 Jun 2026",
-      status: "To Do",
-    },
-  ];
+  // ✅ Transform API data → table format
+  const tableData =
+    supportData?.data?.result?.map((item, index) => ({
+      key: item._id,
+      no: (1 - 1) * 4 + index + 1,
+      name: item.userDetails?.name,
+      email: item.userDetails?.email,
+      contactReason: item.contactReason,
+      message: item.message,
+      status: item.status,
+      createdAt: new Date(item.createdAt).toLocaleDateString(),
+      image:
+        item.userDetails?.profile_image ||
+        "https://i.pravatar.cc/150",
+    })) || [];
 
+  // ✅ Table Columns
   const columns = [
     {
       title: "No",
@@ -41,13 +41,13 @@ const RecentShifts = () => {
     },
     {
       title: "User Info",
-      key: "bartender",
+      key: "user",
       render: (_, record) => (
         <div className="flex items-center gap-3">
           <img
             src={record.image}
             className="w-10 h-10 object-cover rounded-full"
-            alt="Bartender"
+            alt=""
           />
           <span>{record.name}</span>
         </div>
@@ -59,23 +59,23 @@ const RecentShifts = () => {
       key: "email",
     },
     {
-      title: "Requested On",
-      dataIndex: "requestedOn",
-      key: "requestedOn",
+      title: "Contact Reason",
+      dataIndex: "contactReason",
+      key: "contactReason",
     },
     {
-      title: "Shift Date",
-      dataIndex: "shiftDate",
-      key: "shiftDate",
+      title: "Submitted On",
+      dataIndex: "createdAt",
+      key: "createdAt",
     },
     {
       title: "Status",
       key: "status",
       render: (_, record) => (
         <span
-          className={`px-3 py-1 rounded-full italic text-sm ${
-            record.status === "To Do"
-              ? "bg-green-500/20 text-green-400"
+          className={`px-3 py-1 italic rounded-full text-xs ${
+            record.status === "RESOLVED"
+              ? "bg-[#3D8BFF33] text-[#3D8BFF]"
               : "bg-yellow-500/20 text-yellow-400"
           }`}
         >
@@ -86,32 +86,32 @@ const RecentShifts = () => {
     {
       title: "Action",
       key: "action",
+      align: "end",
       render: (_, record) => (
-        <Link to={`/dashboard/HelpSupport/details/${record.key}`}>
-          <button
-            className="text-xl text-blue-500"
-            onClick={() => showModal2(record)}
-          >
-            <EyeIco />
-        </button></Link>
+        <div className="flex justify-end">
+          <Link to={`/dashboard/HelpSupport/details/${record.key}`}>
+            <button className="w-[36px] h-[36px] bg-[#822CE71A] flex justify-center items-center text-[#22C55E] rounded">
+              <EyeIco />
+            </button>
+          </Link>
+        </div>
       ),
     },
   ];
-
   return (
     <div>
       <div className="flex pt-4 text-white justify-between items-center mb-4">
         <h1 className="text-xl font-semibold italic">Recent Help & Support</h1>
         <Link to={'/dashboard/HelpSupport'}>
-        <button className="text-[#3D8BFF] font-medium">View All</button></Link>
+          <button className="text-[#3D8BFF] font-medium">View All</button>
+        </Link>
       </div>
-
-      <Table
-        dataSource={paginatedUsers}
+  <Table
+        dataSource={tableData}
         columns={columns}
+        loading={isLoading}
         pagination={false}
         scroll={{ x: "max-content" }}
-        rowKey="key"
         className="custom-table"
       />
     </div>

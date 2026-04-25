@@ -2,9 +2,7 @@ import { baseApi } from "./baseApi";
 
 const manageApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
-
-getDahboardTotal: builder.query({
+    getDahboardTotal: builder.query({
       query: () => {
         return {
           url: "/meta/get-meta-data",
@@ -13,8 +11,20 @@ getDahboardTotal: builder.query({
       },
       providesTags: ["terms"],
     }),
+
+
+  getEarnings: builder.query({
+      query: () => {
+        return {
+          url: "/meta/admin-earning",
+          method: "GET",
+        };
+      },
+      providesTags: ["terms"],
+    }),
+
     getDahboardActivity: builder.query({
-      query: ({fram}) => {
+      query: ({ fram }) => {
         return {
           url: `meta/get-activities?frame=${fram}`,
           method: "GET",
@@ -22,7 +32,6 @@ getDahboardTotal: builder.query({
       },
       providesTags: ["terms"],
     }),
-    
 
     getTermsConditions: builder.query({
       query: () => {
@@ -44,8 +53,22 @@ getDahboardTotal: builder.query({
       invalidatesTags: ["terms"],
     }),
 
- getSupport: builder.query({
-      query: ({page, limit}) => {
+
+
+
+    getOrder: builder.query({
+      query: ({ page, limit }) => {
+        return {
+          url: `/order/get-all-orders?page=${page}&limit=${limit}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["terms"],
+    }),
+
+
+    getSupport: builder.query({
+      query: ({ page, limit }) => {
         return {
           url: `/support/get-all?page=${page}&limit=${limit}`,
           method: "GET",
@@ -53,7 +76,29 @@ getDahboardTotal: builder.query({
       },
       providesTags: ["terms"],
     }),
- getPrivecy: builder.query({
+
+    getSingleSupport: builder.query({
+      query: ({ id }) => {
+        return {
+          url: `/support/get-single/${id}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["terms"],
+    }),
+
+    updateMark: builder.mutation({
+      query: ({ id, data }) => {
+        return {
+          url: `/support/update-status/${id}`,
+          method: "PATCH",
+          body: data,
+        };
+      },
+      invalidatesTags: ["terms"],
+    }),
+
+    getPrivecy: builder.query({
       query: () => {
         return {
           url: "/manage/get-privacy-policy",
@@ -72,7 +117,7 @@ getDahboardTotal: builder.query({
       },
       invalidatesTags: ["terms"],
     }),
-     getLegalCompany: builder.query({
+    getLegalCompany: builder.query({
       query: () => {
         return {
           url: "/legal-info/get",
@@ -82,7 +127,7 @@ getDahboardTotal: builder.query({
       providesTags: ["terms"],
     }),
 
-   postPrivecy: builder.mutation({
+    postPrivecy: builder.mutation({
       query: (data) => {
         return {
           url: "/manage/add-privacy-policy",
@@ -92,7 +137,6 @@ getDahboardTotal: builder.query({
       },
       invalidatesTags: ["terms"],
     }),
-
 
     // getAllProduct: builder.query({
     //   query: ({page,limit}) => {
@@ -114,19 +158,14 @@ getDahboardTotal: builder.query({
     //   providesTags: ["updateProfile"],
     // }),
 
-
-
     // deleteProduct: builder.mutation({
     //   query: (data) => ({
     //     url: `/admin/products`,
     //     method: "DELETE",
     //     body: {id:data},
     //   }),
-    //   invalidatesTags: ["updateProfile"],      
+    //   invalidatesTags: ["updateProfile"],
     // }),
-
-
-
 
     // updateProduct: builder.mutation({
     //   query: (data) => {
@@ -159,8 +198,6 @@ getDahboardTotal: builder.query({
     //    },
     //    providesTags: ["host"],
     //  }),
-
-
 
     //  getSingleHostreq: builder.query({
     //    query: ({ carId }) => {
@@ -205,7 +242,17 @@ getDahboardTotal: builder.query({
 });
 
 export const {
-  useGetPrivecyQuery,useGetTermsConditionsQuery,usePostPrivecyMutation, usePostTermsConditionMutation, useGetDahboardTotalQuery,useGetDahboardActivityQuery, useGetSupportQuery, useGetLegalCompanyQuery, useAddLegalCompanyMutation
-  
-
+  useGetPrivecyQuery,
+  useGetTermsConditionsQuery,
+  usePostPrivecyMutation,
+  usePostTermsConditionMutation,
+  useGetDahboardTotalQuery,
+  useGetDahboardActivityQuery,
+  useGetSupportQuery,
+  useGetLegalCompanyQuery,
+  useAddLegalCompanyMutation,
+  useGetSingleSupportQuery,
+  useUpdateMarkMutation,
+  useGetOrderQuery,
+  useGetEarningsQuery,
 } = manageApi;
